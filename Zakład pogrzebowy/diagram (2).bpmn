@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="sid-38422fae-e03e-43a3-bef4-bd33b32041b2" targetNamespace="http://bpmn.io/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="9.0.3">
+  <process id="Process_1" isExecutable="false">
+    <startEvent id="StartEvent_1y45yut">
+      <outgoing>SequenceFlow_0h21x7r</outgoing>
+    </startEvent>
+    <task id="Task_1hcentk" name="otrzymanie zwłok">
+      <incoming>SequenceFlow_0h21x7r</incoming>
+      <outgoing>Flow_1tub1im</outgoing>
+      <property id="Property_1va4g90" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_0rz16hy">
+        <sourceRef>DataObjectReference_0k17hki</sourceRef>
+        <targetRef>Property_1va4g90</targetRef>
+      </dataInputAssociation>
+    </task>
+    <sequenceFlow id="SequenceFlow_0h21x7r" sourceRef="StartEvent_1y45yut" targetRef="Task_1hcentk" />
+    <dataObjectReference id="DataObjectReference_0k17hki" name="osoba zmarła" dataObjectRef="DataObject_0siqmdt" />
+    <dataObject id="DataObject_0siqmdt" />
+    <task id="Activity_0hy8h3q" name="wykonanie czynności higienicznych">
+      <incoming>Flow_1tub1im</incoming>
+      <outgoing>Flow_0afp63j</outgoing>
+    </task>
+    <sequenceFlow id="Flow_1tub1im" sourceRef="Task_1hcentk" targetRef="Activity_0hy8h3q" />
+    <task id="Activity_0cm7ka9" name="zabiegi kosmetyczne">
+      <incoming>Flow_0afp63j</incoming>
+      <outgoing>Flow_02drwgb</outgoing>
+    </task>
+    <sequenceFlow id="Flow_0afp63j" sourceRef="Activity_0hy8h3q" targetRef="Activity_0cm7ka9" />
+    <task id="Activity_1o5lu9w" name="makijaż twarzy">
+      <incoming>Flow_02drwgb</incoming>
+      <outgoing>Flow_1und00t</outgoing>
+    </task>
+    <sequenceFlow id="Flow_02drwgb" sourceRef="Activity_0cm7ka9" targetRef="Activity_1o5lu9w" />
+    <task id="Activity_1hc6cwf" name="ułożenie fryzury">
+      <incoming>Flow_1und00t</incoming>
+      <outgoing>Flow_0vf0ous</outgoing>
+    </task>
+    <sequenceFlow id="Flow_1und00t" sourceRef="Activity_1o5lu9w" targetRef="Activity_1hc6cwf" />
+    <task id="Activity_0kd2onv" name="ubranie zmarłego">
+      <incoming>Flow_0vf0ous</incoming>
+      <outgoing>Flow_1ppn3dd</outgoing>
+      <property id="Property_0rjy4cz" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_1iln3jb">
+        <sourceRef>DataObjectReference_043h0rj</sourceRef>
+        <targetRef>Property_0rjy4cz</targetRef>
+      </dataInputAssociation>
+    </task>
+    <sequenceFlow id="Flow_0vf0ous" sourceRef="Activity_1hc6cwf" targetRef="Activity_0kd2onv" />
+    <dataObjectReference id="DataObjectReference_043h0rj" name="ubranie" dataObjectRef="DataObject_08nqvrx" />
+    <dataObject id="DataObject_08nqvrx" />
+    <task id="Activity_0ljb4b2" name="ułożenie ciała w trumnie">
+      <incoming>Flow_1ppn3dd</incoming>
+      <outgoing>Flow_1i8n1sw</outgoing>
+    </task>
+    <sequenceFlow id="Flow_1ppn3dd" sourceRef="Activity_0kd2onv" targetRef="Activity_0ljb4b2" />
+    <endEvent id="Event_1b7ziaz" name="wydanie ciała">
+      <incoming>Flow_1i8n1sw</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_1i8n1sw" sourceRef="Activity_0ljb4b2" targetRef="Event_1b7ziaz" />
+  </process>
+  <bpmndi:BPMNDiagram id="BpmnDiagram_1">
+    <bpmndi:BPMNPlane id="BpmnPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNEdge id="SequenceFlow_0h21x7r_di" bpmnElement="SequenceFlow_0h21x7r">
+        <omgdi:waypoint x="188" y="250" />
+        <omgdi:waypoint x="240" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1tub1im_di" bpmnElement="Flow_1tub1im">
+        <omgdi:waypoint x="340" y="250" />
+        <omgdi:waypoint x="400" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0afp63j_di" bpmnElement="Flow_0afp63j">
+        <omgdi:waypoint x="500" y="250" />
+        <omgdi:waypoint x="560" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_02drwgb_di" bpmnElement="Flow_02drwgb">
+        <omgdi:waypoint x="660" y="250" />
+        <omgdi:waypoint x="720" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1und00t_di" bpmnElement="Flow_1und00t">
+        <omgdi:waypoint x="820" y="250" />
+        <omgdi:waypoint x="880" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vf0ous_di" bpmnElement="Flow_0vf0ous">
+        <omgdi:waypoint x="980" y="250" />
+        <omgdi:waypoint x="1040" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ppn3dd_di" bpmnElement="Flow_1ppn3dd">
+        <omgdi:waypoint x="1140" y="250" />
+        <omgdi:waypoint x="1200" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1i8n1sw_di" bpmnElement="Flow_1i8n1sw">
+        <omgdi:waypoint x="1300" y="250" />
+        <omgdi:waypoint x="1362" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="StartEvent_1y45yut_di" bpmnElement="StartEvent_1y45yut">
+        <omgdc:Bounds x="152" y="232" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="134" y="145" width="73" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1hcentk_di" bpmnElement="Task_1hcentk">
+        <omgdc:Bounds x="240" y="210" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0k17hki_di" bpmnElement="DataObjectReference_0k17hki">
+        <omgdc:Bounds x="222" y="85" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="207" y="142" width="67" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0hy8h3q_di" bpmnElement="Activity_0hy8h3q">
+        <omgdc:Bounds x="400" y="210" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0cm7ka9_di" bpmnElement="Activity_0cm7ka9">
+        <omgdc:Bounds x="560" y="210" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1o5lu9w_di" bpmnElement="Activity_1o5lu9w">
+        <omgdc:Bounds x="720" y="210" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1hc6cwf_di" bpmnElement="Activity_1hc6cwf">
+        <omgdc:Bounds x="880" y="210" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0kd2onv_di" bpmnElement="Activity_0kd2onv">
+        <omgdc:Bounds x="1040" y="210" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_043h0rj_di" bpmnElement="DataObjectReference_043h0rj">
+        <omgdc:Bounds x="1002" y="95" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1002" y="152" width="37" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ljb4b2_di" bpmnElement="Activity_0ljb4b2">
+        <omgdc:Bounds x="1200" y="210" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1b7ziaz_di" bpmnElement="Event_1b7ziaz">
+        <omgdc:Bounds x="1362" y="232" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1347" y="275" width="66" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0rz16hy_di" bpmnElement="DataInputAssociation_0rz16hy">
+        <omgdi:waypoint x="251" y="135" />
+        <omgdi:waypoint x="285" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1iln3jb_di" bpmnElement="DataInputAssociation_1iln3jb">
+        <omgdi:waypoint x="1033" y="145" />
+        <omgdi:waypoint x="1068" y="210" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

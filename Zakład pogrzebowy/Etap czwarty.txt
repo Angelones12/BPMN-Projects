@@ -1,0 +1,22 @@
+Lista wymagań funkcjonalnych i pozafunkcjonalnych systemu informatycznego,
+który będzie wspomagał działanie wybranej organizacji (co najmniej 4 pozycje na każdą osobę z grupy).
+Aplikacja ułatwiająca organizacje pogrzebów: pokazuje dane umrzyka, zawiera terminarz oraz informacje dotyczące cmentarza i miejsca pochówku
+Funkcjonalne:
+1.Wybranie sposobu płatności.
+2.Dodanie płatności. 
+3.Edycja płatności.
+4.Wystawienie dokumentu. 
+5.Generowanie raportu dot. sprzedaży. 
+6.Generowanie raportu dot. klientów.
+7.Tworzenie cennika. 
+8.Edycja cennika. 
+9.Drukowanie cennika.
+10.Dodanie nowe klienta
+11.Generowanie podsumowania zamówienia(koszty).
+Pozafunkcjonalne:
+1.Powinien działać zarówno online jak i offline.
+2.Powinien działać na windowsie jak i na androidzie.
+3.Powinien łączyć się z siecią gps.
+4.Powinien edycje bazy danych.
+5.Powinien umożliwiać płatności w formie: blik,przelew,karta kredytowa.
+6.Powinien automatycznie generować fakture.	

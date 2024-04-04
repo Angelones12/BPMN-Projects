@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="sid-38422fae-e03e-43a3-bef4-bd33b32041b2" targetNamespace="http://bpmn.io/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="9.0.3">
+  <process id="Process_1" isExecutable="false">
+    <exclusiveGateway id="Gateway_1vaa2nn" name="Transport trumny do kościoła">
+      <incoming>Flow_1ctkr54</incoming>
+      <outgoing>Flow_08mayuv</outgoing>
+      <outgoing>Flow_1tagaet</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="Flow_08mayuv" name="Tak" sourceRef="Gateway_1vaa2nn" targetRef="Activity_0uujrdl" />
+    <task id="Activity_1io2ypq" name="Transport trumny na wyznaczony cmentarz">
+      <incoming>Flow_1tagaet</incoming>
+      <incoming>Flow_1ymhsbb</incoming>
+      <outgoing>Flow_0pwt10s</outgoing>
+      <property id="Property_1m0z2n1" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_0u660fa">
+        <sourceRef>DataObjectReference_0wenu8u</sourceRef>
+        <targetRef>Property_1m0z2n1</targetRef>
+      </dataInputAssociation>
+    </task>
+    <sequenceFlow id="Flow_1tagaet" name="Nie" sourceRef="Gateway_1vaa2nn" targetRef="Activity_1io2ypq" />
+    <task id="Activity_1d355gm" name="Zabranie trumny z kościoła wraz z kwiatami">
+      <incoming>Flow_0udx9n1</incoming>
+      <outgoing>Flow_1ymhsbb</outgoing>
+    </task>
+    <sequenceFlow id="Flow_1ymhsbb" sourceRef="Activity_1d355gm" targetRef="Activity_1io2ypq" />
+    <intermediateCatchEvent id="Event_1bzeq4q" name="Oczekiwanie na koniec obrządków kościelnych związanych z pogrzebem">
+      <incoming>Flow_0vib2w4</incoming>
+      <outgoing>Flow_0udx9n1</outgoing>
+      <timerEventDefinition id="TimerEventDefinition_0mpiszc" />
+    </intermediateCatchEvent>
+    <sequenceFlow id="Flow_0udx9n1" sourceRef="Event_1bzeq4q" targetRef="Activity_1d355gm" />
+    <dataObjectReference id="DataObjectReference_0wenu8u" name="Dane odnośnie miejsca grobu" dataObjectRef="DataObject_15wyrvx" />
+    <dataObject id="DataObject_15wyrvx" />
+    <task id="Activity_0uujrdl" name="Wniesienie trumny do kościoła wraz z kwiatami">
+      <incoming>Flow_08mayuv</incoming>
+      <outgoing>Flow_0vib2w4</outgoing>
+    </task>
+    <sequenceFlow id="Flow_0vib2w4" sourceRef="Activity_0uujrdl" targetRef="Event_1bzeq4q" />
+    <task id="Activity_1hiu2vc" name="Przeniesienie trumny na miejsce pochówku">
+      <incoming>Flow_0pwt10s</incoming>
+      <outgoing>Flow_060oqch</outgoing>
+      <property id="Property_0bz5g1y" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_0cqhmwg">
+        <sourceRef>DataObjectReference_0wenu8u</sourceRef>
+        <targetRef>Property_0bz5g1y</targetRef>
+      </dataInputAssociation>
+    </task>
+    <sequenceFlow id="Flow_0pwt10s" sourceRef="Activity_1io2ypq" targetRef="Activity_1hiu2vc" />
+    <dataObjectReference id="DataObjectReference_1h9lemy" name="trumna z ciałem" dataObjectRef="DataObject_051qq7v" />
+    <dataObject id="DataObject_051qq7v" />
+    <startEvent id="Event_0mtrgoq" name="Zakończenie obrządków w sali pogrzebowej">
+      <outgoing>Flow_1tszm35</outgoing>
+      <timerEventDefinition id="TimerEventDefinition_1xhsc2f" />
+    </startEvent>
+    <task id="Activity_18rmywd" name="Odebranie trumny z ciałem z sali pogrzebowej">
+      <incoming>Flow_1tszm35</incoming>
+      <outgoing>Flow_1ctkr54</outgoing>
+      <property id="Property_1jfzzj8" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_107c4jj">
+        <sourceRef>DataObjectReference_1h9lemy</sourceRef>
+        <targetRef>Property_1jfzzj8</targetRef>
+      </dataInputAssociation>
+    </task>
+    <sequenceFlow id="Flow_1tszm35" sourceRef="Event_0mtrgoq" targetRef="Activity_18rmywd" />
+    <sequenceFlow id="Flow_1ctkr54" sourceRef="Activity_18rmywd" targetRef="Gateway_1vaa2nn" />
+    <intermediateCatchEvent id="Event_0sfz2s3" name="Oczekiwanie na koniec obrządków związanych z pogrzebem">
+      <incoming>Flow_0ergcsc</incoming>
+      <outgoing>Flow_0e37gzj</outgoing>
+      <timerEventDefinition id="TimerEventDefinition_1p4p9f0" />
+    </intermediateCatchEvent>
+    <sequenceFlow id="Flow_060oqch" sourceRef="Activity_1hiu2vc" targetRef="Activity_1hqo1ki" />
+    <task id="Activity_1hqo1ki" name="Umieszczenie trumny w grobie">
+      <incoming>Flow_060oqch</incoming>
+      <outgoing>Flow_0ergcsc</outgoing>
+    </task>
+    <sequenceFlow id="Flow_0ergcsc" sourceRef="Activity_1hqo1ki" targetRef="Event_0sfz2s3" />
+    <task id="Activity_198qiog" name="Zamknięcie grobu">
+      <incoming>Flow_0e37gzj</incoming>
+      <outgoing>Flow_0mctkva</outgoing>
+    </task>
+    <sequenceFlow id="Flow_0e37gzj" sourceRef="Event_0sfz2s3" targetRef="Activity_198qiog" />
+    <endEvent id="Event_10hv5v6" name="Powrót do bazy">
+      <incoming>Flow_0mctkva</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_0mctkva" sourceRef="Activity_198qiog" targetRef="Event_10hv5v6" />
+  </process>
+  <bpmndi:BPMNDiagram id="BpmnDiagram_1">
+    <bpmndi:BPMNPlane id="BpmnPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNEdge id="Flow_08mayuv_di" bpmnElement="Flow_08mayuv">
+        <omgdi:waypoint x="555" y="210" />
+        <omgdi:waypoint x="630" y="210" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="603" y="192" width="17" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1tagaet_di" bpmnElement="Flow_1tagaet">
+        <omgdi:waypoint x="530" y="235" />
+        <omgdi:waypoint x="530" y="360" />
+        <omgdi:waypoint x="940" y="360" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="537" y="297" width="17" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ymhsbb_di" bpmnElement="Flow_1ymhsbb">
+        <omgdi:waypoint x="990" y="250" />
+        <omgdi:waypoint x="990" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0udx9n1_di" bpmnElement="Flow_0udx9n1">
+        <omgdi:waypoint x="818" y="210" />
+        <omgdi:waypoint x="940" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vib2w4_di" bpmnElement="Flow_0vib2w4">
+        <omgdi:waypoint x="730" y="210" />
+        <omgdi:waypoint x="782" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0pwt10s_di" bpmnElement="Flow_0pwt10s">
+        <omgdi:waypoint x="1040" y="360" />
+        <omgdi:waypoint x="1100" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1tszm35_di" bpmnElement="Flow_1tszm35">
+        <omgdi:waypoint x="218" y="210" />
+        <omgdi:waypoint x="290" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ctkr54_di" bpmnElement="Flow_1ctkr54">
+        <omgdi:waypoint x="390" y="210" />
+        <omgdi:waypoint x="505" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_060oqch_di" bpmnElement="Flow_060oqch">
+        <omgdi:waypoint x="1200" y="360" />
+        <omgdi:waypoint x="1250" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ergcsc_di" bpmnElement="Flow_0ergcsc">
+        <omgdi:waypoint x="1350" y="360" />
+        <omgdi:waypoint x="1412" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0e37gzj_di" bpmnElement="Flow_0e37gzj">
+        <omgdi:waypoint x="1448" y="360" />
+        <omgdi:waypoint x="1480" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mctkva_di" bpmnElement="Flow_0mctkva">
+        <omgdi:waypoint x="1580" y="360" />
+        <omgdi:waypoint x="1642" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Gateway_1vaa2nn_di" bpmnElement="Gateway_1vaa2nn" isMarkerVisible="true">
+        <omgdc:Bounds x="505" y="185" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="488" y="147.5" width="83" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1d355gm_di" bpmnElement="Activity_1d355gm">
+        <omgdc:Bounds x="940" y="170" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ji10tf_di" bpmnElement="Event_1bzeq4q">
+        <omgdc:Bounds x="782" y="192" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="756" y="235" width="90" height="66" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0uujrdl_di" bpmnElement="Activity_0uujrdl">
+        <omgdc:Bounds x="630" y="170" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_07kwr5y_di" bpmnElement="Event_0mtrgoq">
+        <omgdc:Bounds x="182" y="192" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="158" y="235" width="85" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_18rmywd_di" bpmnElement="Activity_18rmywd">
+        <omgdc:Bounds x="290" y="170" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_1h9lemy_di" bpmnElement="DataObjectReference_1h9lemy">
+        <omgdc:Bounds x="232" y="85" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="212" y="142" width="77" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1io2ypq_di" bpmnElement="Activity_1io2ypq">
+        <omgdc:Bounds x="940" y="320" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0wenu8u_di" bpmnElement="DataObjectReference_0wenu8u">
+        <omgdc:Bounds x="1092" y="455" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1073" y="512" width="75" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1hiu2vc_di" bpmnElement="Activity_1hiu2vc">
+        <omgdc:Bounds x="1100" y="320" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1hqo1ki_di" bpmnElement="Activity_1hqo1ki">
+        <omgdc:Bounds x="1250" y="320" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0zl81p1" bpmnElement="Event_0sfz2s3">
+        <omgdc:Bounds x="1412" y="342" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1386" y="385" width="90" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_198qiog_di" bpmnElement="Activity_198qiog">
+        <omgdc:Bounds x="1480" y="320" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_10hv5v6_di" bpmnElement="Event_10hv5v6">
+        <omgdc:Bounds x="1642" y="342" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1622" y="385" width="77" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0u660fa_di" bpmnElement="DataInputAssociation_0u660fa">
+        <omgdi:waypoint x="1092" y="462" />
+        <omgdi:waypoint x="1030" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0cqhmwg_di" bpmnElement="DataInputAssociation_0cqhmwg">
+        <omgdi:waypoint x="1120" y="455" />
+        <omgdi:waypoint x="1142" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_107c4jj_di" bpmnElement="DataInputAssociation_107c4jj">
+        <omgdi:waypoint x="268" y="121" />
+        <omgdi:waypoint x="348" y="170" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,168 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="umowa">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="informacjePodstawowe">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="numerUmowy"/>
+							<xs:element type="xs:dateTime" name="dataZawarcia"/>
+							<xs:element type="xs:dateTime" name="dataWykonania"/>
+							<xs:element type="xs:string" name="firma"/>
+							<xs:element type="xs:string" name="reprezentant">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[a-zA-ZŃŚĆŹŻÓŁ][ąćęłńóśźżZŃŚĆŹŻÓŁa-zA-Z- .]{1,60}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="klient">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="imie">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[a-zA-ZŃŚĆŹŻÓŁ][ąćęłńóśźżZŃŚĆŹŻÓŁa-zA-Z- .]{1,30}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element type="xs:string" name="nazwisko">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[a-zA-ZŃŚĆŹŻÓŁ][ąćęłńóśźżZŃŚĆŹŻÓŁa-zA-Z- .]{1,30}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element type="xs:string" name="adres"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="nieboszczyk">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="imie">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[a-zA-ZŃŚĆŹŻÓŁ][ąćęłńóśźżZŃŚĆŹŻÓŁa-zA-Z- .]{1,30}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element type="xs:string" name="nazwisko">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[a-zA-ZŃŚĆŹŻÓŁ][ąćęłńóśźżZŃŚĆŹŻÓŁa-zA-Z- .]{1,30}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element type="xs:string" name="adres"/>
+							<xs:element type="xs:int" name="wiek">
+								<xs:simpleType>
+									<xs:restriction base="xs:integer">
+										<xs:minInclusive value="0"/>
+										<xs:maxInclusive value="120"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element type="xs:dateTime" name="dataZgonu"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="miejsceSpoczynku">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="adresCmentarza"/>
+							<xs:element type="xs:int" name="numerGrobu"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="uslugi">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="trumna">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="opcja1"/>
+										<xs:element type="xs:string" name="opcja2"/>
+										<xs:element type="xs:string" name="opcja3"/>
+										<xs:element type="xs:string" name="opcja4"/>
+										<xs:element type="xs:string" name="opcja5"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="karawan">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="opcja1"/>
+										<xs:element type="xs:string" name="opcja2"/>
+										<xs:element type="xs:string" name="opcja3"/>
+										<xs:element type="xs:string" name="opcja4"/>
+										<xs:element type="xs:string" name="opcja5"/>
+										<xs:element type="xs:string" name="opcja6"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="pakiet">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="opcja1"/>
+										<xs:element type="xs:string" name="opcja2"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element type="xs:string" name="koscielny"/>
+							<xs:element type="xs:int" name="nekrolog"/>
+							<xs:element name="krzyz">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="opcja1"/>
+										<xs:element type="xs:string" name="opcja2"/>
+										<xs:element type="xs:string" name="opcja3"/>
+										<xs:element type="xs:string" name="opcja4"/>
+										<xs:element type="xs:string" name="opcja5"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="nagrobek">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="opcja1"/>
+										<xs:element type="xs:string" name="opcja2"/>
+										<xs:element type="xs:string" name="opcja3"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="podsumowanie">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:decimal" name="koszt">
+								<xs:simpleType>
+									<xs:restriction base="xs:float">
+										<xs:minInclusive value="0"/>
+										<xs:fractionDigits value="2"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="formaPlatnosci">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="opcja1"/>
+							<xs:element type="xs:string" name="opcja2"/>
+							<xs:element type="xs:string" name="opcja3"/>
+							<xs:element type="xs:string" name="opcja4"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,86 @@
+<?xml version="1.0" standalone="yes"?>
+<umowa>
+    <informacjePodstawowe>
+        <numerUmowy>12983</numerUmowy>
+        <dataZawarcia>02.05.2022</dataZawarcia>
+        <dataWykonania>05.05.2022</dataWykonania>
+        <firma>Zakład Pogrzebowy Pod Chmurką</firma>
+        <reprezentant>Halina Kowalska</reprezentant>
+    </informacjePodstawowe>
+    
+	<klient>
+		<imie>Jan</imie>
+		<nazwisko>Nowak</nazwisko>
+		<adres>ul. Sezamkowa 13</adres>
+	</klient>
+	
+	<nieboszczyk>
+	    <imie>Janina</imie>
+		<nazwisko>Nowak</nazwisko>
+		<adres>ul. Sezamkowa 13</adres>
+		<wiek>69</wiek>
+		<dataZgonu>01.05.2022</dataZgonu>
+	</nieboszczyk>
+	
+	<miejsceSpoczynku>
+    	<adresCmentarza>ul. Radosna 32</adresCmentarza>
+    	<numerGrobu>1</numerGrobu>
+	</miejsceSpoczynku>
+	
+	<uslugi>
+	    <trumna>
+	        <opcja1>drewniana</opcja1>
+	        <opcja2>tekturowa</opcja2>
+	        <opcja3>transportowa</opcja3>
+	        <opcja4>na zamówienie</opcja4>
+	        <opcja5>urna</opcja5>
+	    </trumna>
+	    <karawan>
+	        <opcja1>staromodny</opcja1>
+	        <opcja2>nowoczesny</opcja2>
+	        <opcja3>Mercedes</opcja3>
+	        <opcja4>Ford</opcja4>
+	        <opcja5>Chevrolet</opcja5>
+	        <opcja6>Rolls-Royce</opcja6>
+	    </karawan>
+	    
+	    <pakiet>
+	        <opcja1>premium</opcja1>
+	        <opcja2>standard</opcja2>
+	    </pakiet>
+	    
+	    <koscielny>tak</koscielny>
+	    
+        <nekrolog>3</nekrolog>	    
+        
+        <krzyz>
+            <opcja1>granit</opcja1>
+            <opcja2>marmur</opcja2>
+            <opcja3>piaskowiec</opcja3>
+            <opcja4>drewno</opcja4>
+            <opcja5>brak</opcja5>
+        </krzyz>
+	    
+	    <nagrobek>
+	        <opcja1>granit</opcja1>
+            <opcja2>marmur</opcja2>
+            <opcja3>piaskowiec</opcja3>
+	    </nagrobek>
+	    
+	</uslugi>
+	
+	<podsumowanie>
+	    <koszt>11500</koszt>
+	</podsumowanie>
+	
+	<formaPlatnosci>
+	    <opcja1>raty</opcja1>
+        <opcja2>karta</opcja2>
+        <opcja3>przelew</opcja3>
+        <opcja4>gotówka</opcja4>
+	</formaPlatnosci>
+	
+	
+	
+
+</umowa> 
